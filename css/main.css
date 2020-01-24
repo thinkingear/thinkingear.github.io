@@ -1839,7 +1839,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f6f;
+  background: #22dd47;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3136,4 +3136,11 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
+}
+body {
+  background: url("https://pic.downk.cc/item/5e2af2802fb38b8c3c648995.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
 }
