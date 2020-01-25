@@ -11,6 +11,18 @@
         <content type="html"><![CDATA[<p><strong>摘要</strong>：主要测试 hexo 对这个 md 兼容性而做的 demo</p><a id="more"></a><h2 id="第一章">第一章</h2><h3 id="第一节">第一节</h3><ol><li><p>😅</p></li><li></li><li></li><li></li></ol><h3 id="第二节">第二节</h3><p>1）</p><p>2）</p><p>3）</p><p>​①</p><p>​②</p><h2 id="第二章">第二章</h2><h2 id="第三章">第三章</h2><h2 id="总结">总结</h2>]]></content>
       
       
+      <categories>
+          
+          <category> 其它 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
       
     </entry>
     
