@@ -1266,7 +1266,7 @@ pre .javascript .function {
 .use-motion .collection-title {
   opacity: 0;
 }
-.post-title {
+.page-post-detail.post-title {
   font-size: 26px;
   text-align: center;
   word-break: break-word;
@@ -1279,7 +1279,7 @@ pre .javascript .function {
   box-shadow: 2px 2px 7px #6cf;
 }
 @media (max-width: 767px) {
-  .post-title {
+  .page-post-detail.post-title {
     font-size: 22px;
   }
 }
@@ -1844,7 +1844,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9f5b2d;
+  background: #ff8617;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2376,13 +2376,6 @@ pre .javascript .function {
 .site-pv .busuanzi-value,
 .page-pv .busuanzi-value {
   margin: 0 5px;
-}
-.site-uv {
-  margin-right: 10px;
-}
-.site-uv::after {
-  content: "|";
-  padding-left: 10px;
 }
 .page-archive .archive-page-counter {
   position: relative;
@@ -3159,7 +3152,7 @@ body {
   background: rgba(255,255,255,0.9);
 }
 .popup {
-  opacity: 0.9;
+  opacity: 1;
 }
 .btn {
   color: #49b1f5;
@@ -3170,4 +3163,23 @@ body {
   border-color: #49b1f5;
   color: #fff;
   background: #49b1f5;
+}
+.busuanzi-value {
+  color: #1890ff;
+}
+code {
+  color: #ff7600;
+  background: #fbf7f8;
+  margin: 2px;
+}
+.highlight,
+code,
+pre {
+  border: 1px solid #d6d6d6;
+}
+.site-overview {
+  text-align: center;
+}
+canvas#canvas {
+  margin-top: 20px;
 }

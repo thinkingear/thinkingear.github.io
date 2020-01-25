@@ -8,7 +8,7 @@
       <link href="/2020/01/25/%E3%80%8A%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84Markdown%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
       <url>/2020/01/25/%E3%80%8A%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84Markdown%E3%80%8B%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<p><strong>摘要</strong>：</p><p>​为了测试 hexo 对这个 md 而做的 demo</p><a id="more"></a><h2 id="第一章"><a class="header-anchor" href="#第一章">¶</a>第一章</h2><h3 id="第一节"><a class="header-anchor" href="#第一节">¶</a>第一节</h3><ol><li></li><li></li><li></li><li></li></ol><h3 id="第二节"><a class="header-anchor" href="#第二节">¶</a>第二节</h3><p>1）</p><p>2）</p><p>3）</p><p>​①</p><p>​②</p><h2 id="第二章"><a class="header-anchor" href="#第二章">¶</a>第二章</h2><h2 id="第三章"><a class="header-anchor" href="#第三章">¶</a>第三章</h2><h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>]]></content>
+        <content type="html"><![CDATA[<p><strong>摘要</strong>：主要测试 hexo 对这个 md 兼容性而做的 demo</p><a id="more"></a><h2 id="第一章">第一章</h2><h3 id="第一节">第一节</h3><ol><li><p>😅</p></li><li></li><li></li><li></li></ol><h3 id="第二节">第二节</h3><p>1）</p><p>2）</p><p>3）</p><p>​①</p><p>​②</p><h2 id="第二章">第二章</h2><h2 id="第三章">第三章</h2><h2 id="总结">总结</h2>]]></content>
       
       
       
