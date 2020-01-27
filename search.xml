@@ -4,23 +4,48 @@
   
     
     <entry>
-      <title>《了不起的Markdown》笔记</title>
-      <link href="/2020/01/25/%E3%80%8A%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84Markdown%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
-      <url>/2020/01/25/%E3%80%8A%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84Markdown%E3%80%8B%E7%AC%94%E8%AE%B0/</url>
+      <title>初学计算机网络前瞻</title>
+      <link href="/2020/01/27/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/"/>
+      <url>/2020/01/27/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/</url>
       
-        <content type="html"><![CDATA[<p><strong>摘要</strong>：主要测试 hexo 对这个 md 兼容性而做的 demo</p><a id="more"></a><h2 id="第一章">第一章</h2><h3 id="第一节">第一节</h3><ol><li><p>😅</p></li><li></li><li></li><li></li></ol><h3 id="第二节">第二节</h3><p>1）</p><p>2）</p><p>3）</p><p>​①</p><p>​②</p><h2 id="第二章">第二章</h2><h2 id="第三章">第三章</h2><h2 id="总结">总结</h2>]]></content>
+        <content type="html"><![CDATA[<p><strong>摘要</strong>：主要给出了初学计算机网路时整体的框架以及学习要求</p><a id="more"></a><p>**读者定位：**对没有接触过计算机网络但希望了解并学习的人群，给出了一个大致的 学习框架以及一系列基本要求。</p><p>**阅前须知：**本文的所有内容都由程序🐏提供，更多内容请移步至羊哥的公众号(CodeSheep)，<a href="https://space.bilibili.com/384068749" target="_blank" rel="noopener">B站空间</a> 或 <a href="https://www.codesheep.cn/" target="_blank" rel="noopener">个人博客</a>。</p><blockquote><p>计算机网络主要指的就是 TCP/IP 协议栈，TCP/IP已然称为互联网的基石，甚至可以被称作是互联网时代最伟大的发明。但学习 TCP/IP 技术栈被人饱受诟病的一点是 TCP/IP 大部分内容都封装在操作系统内核态，总是藏着掖着，老是见不得人，因此容易遗忘，学起来就比较痛苦。</p></blockquote><h2 id="一、TCP-IP协议体系的认知">一、TCP/IP协议体系的认知</h2><p>​TCP/IP 协议栈是一种分层的协议，自下而上依次包括 <strong>数据链路层</strong>、<strong>网络层</strong>(IP)、<strong>传输层</strong>(TCP,UDP)以及<strong>应用层</strong>(DNS,FTP,HTTPS,HTTP)。除了应用层是封装在<strong>用户空间</strong>中的，其余三层都是封装在<strong>操作系统内核空间</strong>中的，例如 Windows，Linux 操作系统内部当中。<br>​此外，用户最经常接触的就是应用层的协议，而被封装在操作系统内核空间的三层是不容易&quot;看&quot;到的。并且下一层对上一层是透明的，传输在每一层都是对等的。</p><h2 id="二、数据链路层">二、数据链路层</h2><p>需要掌握：</p><ol><li>以太网帧的格式</li><li>MTU 的概念</li><li>ARP/rARP 协议：地址解析/逆地址解析<ul><li>可以理解为链路层和网络层之间的中间协议</li><li>ARP 查询原理，ARP 的报文格式，ARP 缓存格式</li></ul></li></ol><h2 id="三、网络层">三、网络层</h2><p>需要掌握：</p><ol><li><p>IP 首部格式：如 16位分片标识、DF 不分片标志、MF 多分片标志、13位片偏移、8位生存时间TTL、16位的首部检查</p></li><li><p>IP 分片：</p><ul><li><p>给一个很长的数据包，它的总长度大于它的 MTU值时，必定要带来 IP 分片的问题，需要画出各个分片的情况。</p></li><li><p>如何避免 IP 分片：在应用层、传输层做限制</p></li><li><p>如何确定分片的顺序</p></li><li><p>接收端如何确定所有的 IP 分片全部到达</p></li></ul></li><li><p>IP 选路 — 路由表(route print)</p><ul><li>路由表中每个字段代表什么含义</li></ul></li><li><p>ICMP 协议</p><ul><li>可以理解为网络层和传输层之间的中间协议</li><li>ICMP 协议的报文格式</li><li>报文的两大分类，即 查询 + 报错</li><li>2种查询报文 + 5种差错报文</li></ul></li></ol><h2 id="四、传输层">四、传输层</h2><p>需要掌握：</p><ol><li>UDP 协议<ul><li>UDP 协议的特点 + 首部各个字段</li><li>伪包头</li></ul></li><li>TCP 协议<ul><li>TCP 协议的特点 + 首部字段 + 面向连接可靠机制</li><li>TCP 流量控制机制<ul><li>三次握手、四次挥手，同时打开、关闭、半关闭</li></ul></li><li>TCP 流量控制机制<ul><li>滑动窗口、慢启动、拥塞避免、快速重传、快速恢复</li></ul></li><li>TCP 超时重传机制<ul><li>定时器的应用</li></ul></li><li>伪包头</li></ul></li></ol><h2 id="五、应用层">五、应用层</h2><p>需要掌握</p><ol><li><p>DNS 协议</p><ul><li><p>域名到 IP 地址的 DNS 解析映射</p></li><li><p>名字空间</p></li><li><p>DNS 指针查询中的 反向查找 或 逆向解析 的基本原理</p></li><li><p>DNS 换粗</p></li></ul></li><li><p>FTP 协议</p><ul><li>网络界的活化石……</li><li>FTP 的两条连接，即 控制流 + 数据流</li><li>FTP 的两种工作模式，即 PASV + PORT</li><li>FTP 的各种指令 + 响应码</li><li>FTP 的断点续传 + 匿名 FTP</li></ul></li><li><p>HTTP 协议</p><ul><li>报文格式，即 请求报文 + 响应报文</li><li>报文头的各种字段</li><li>HTTP 各种字段码</li></ul></li><li><p>HTTPS 协议</p><ul><li>HTTPS 的详细握手过程</li><li>摘要算法、数字签名、数字证书的原理和过程</li></ul></li></ol><p><img src="%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%A7%81%E8%A7%A3.PNG" alt="大佬的见解"></p>]]></content>
       
       
       <categories>
           
-          <category> 其它 </category>
+          <category> 技术 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 测试 </tag>
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>入坑 Java 开发前瞻指南</title>
+      <link href="/2020/01/27/%E5%85%A5%E5%9D%91%20Java%20%E5%BC%80%E5%8F%91%E5%89%8D%E7%9E%BB%E6%8C%87%E5%8D%97/"/>
+      <url>/2020/01/27/%E5%85%A5%E5%9D%91%20Java%20%E5%BC%80%E5%8F%91%E5%89%8D%E7%9E%BB%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<p><strong>摘要</strong>：主要给出了 Java开发的一般路线</p><a id="more"></a><p>**阅前须知：**这是一个整理向的文章，仅供参考，实际效果因人而异。本文的所有内容都由程序🐏提供，更多内容请移步至羊哥的公众号(CodeSheep)，<a href="https://space.bilibili.com/384068749" target="_blank" rel="noopener">B站空间</a> 或 <a href="https://www.codesheep.cn/" target="_blank" rel="noopener">个人博客</a>。</p><blockquote><p>为什么选择 Java ？</p><p>​Java 的生态圈<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>实在是太香了，各种各样的框架、开源项目，以及解决问题的方案很全。</p></blockquote><h3 id="基础知识">基础知识</h3><ul><li>Java 编程语言的学习<ul><li>最好是配一些小练手的项目一起做</li><li>推荐书籍：<ul><li>Java编程思想：圣经级别的书</li><li>Java并发编程实战：多线程、多进程的精髓</li><li>函数式编程思维：有利于提升代码的信噪比<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，提升性能</li></ul></li></ul></li><li>基本<strong>数据结构及算法</strong><ul><li>==圣经级别的重要==</li><li>推荐书籍：<ul><li>剑指Offer</li><li>编程之美</li><li>编程珠玑</li></ul></li><li>刷题网站<ul><li>LeetCode</li></ul></li></ul></li><li>基本的网络知识：TCP/IP HTTP/HTTPS<ul><li>Java 开发做 Web应用的居多，现在的网站、APP、小程序都是一种 Web 模型。</li><li>推荐书籍：<ul><li>TCP/IP详解卷一二三：吃透是最好的，边抓包，对照报文阅读会更有效率</li></ul></li></ul></li><li>基本的设计模式<ul><li>模板、策略……</li><li>推荐书籍：Head First Design Patterns</li></ul></li></ul><hr><h3 id="工具">工具</h3><ul><li>操作系统：Linux（因为很好的稳定性，实际的开发大多是在Linux上做的）<ul><li>CentOS,Ubuntu,Fedora</li><li>推荐书籍：鸟哥的Linux私房菜</li></ul></li><li>代码管理：SVN / Git</li><li>持续集成（CI/CD）：Jekins</li><li>项目管理：<strong>Maven</strong> / Gradle<ul><li>有必要深入体系地学习</li></ul></li></ul><hr><h3 id="框架">框架</h3><p>框架意义就是应对复杂度，可以把很复杂的工作得到很好的精简。</p><h4 id="应用层框架">应用层框架</h4><ul><li><s>SSH (Structs +Spring + Hibernate)</s><ul><li>这个有点过时了</li></ul></li><li>SSM (Spring + Springmvc + Mybatis)<ul><li>Mybatis 数据库的访问层</li><li>推荐书籍：<ul><li>Spring MVC + MyBatis 从入门到项目实践：比较地快餐风</li></ul></li></ul></li><li>Spring Boot<ul><li>自动配置和自动装箱等等，使其成为最好上手的框架之一</li></ul></li></ul><h4 id="中间件">中间件</h4><ul><li>消息队列 (MQ/Message Queue)：RocketMQ文档,ActiveMQ文档<ul><li>解耦、异步处理……</li></ul></li><li>通信框架 &gt; 远程过程调用 (RPC/Remote Procedure Call)<ul><li>gRPC,thrift,dubbo,nettyspringCloud,微服务 等都和 PRC 有关</li></ul></li><li>ElasticSearch（数据库/搜索引擎）<ul><li>推荐书籍：ElasticSearch 服务器开发</li></ul></li><li>……</li></ul><h4 id="数据库">数据库</h4><ul><li>SQL / Structured Query Language (结构化查询语言)<ul><li>MySQL / Postgre SQL</li></ul></li><li>NoSQL / Not only SQL（非结构数据库）<ul><li>Redis(高速缓存),Memcahed(缓存),mongodb(文档SQL),ElasticSearch</li><li>推荐书籍：<ul><li>Redis 入门指南：也是一本快餐式的书籍</li><li>Redis 设计与运维：相较上一本更为全面和体系化</li></ul></li></ul></li></ul><h2 id="架构">架构</h2><h4 id="分布式-微服务架构">分布式/微服务架构</h4><p>​传统开发一般是个单体开发，一味地向一个项目堆积各种功能。微服务的出现使得将功能进行拆分，形成很多个微型单元模块，之间再通过 PRC 或 HTTP 相互进行调用。</p><ul><li>Spring Cloud</li><li>dubbo</li><li>RPC 通信框架</li></ul><h4 id="虚拟化-容器化技术">虚拟化/容器化技术</h4><ul><li>Docker 容器<ul><li>类似黑盒，将内部复杂的功能屏蔽掉，<strong>应对复杂度</strong>。</li></ul></li><li>容器集群（K8S/kubernetes）<ul><li>管理容器的工具</li></ul></li></ul><h2 id="源码-性能">源码/性能</h2><p>需要有丰富的编程经验、运维经验等等，难度较高。</p><ul><li>JDK 源码以及部分设计思想</li><li>Spring 源码<ul><li>推荐书籍：Spring 技术内幕</li></ul></li><li>JVM 细节和排错<ul><li>永恒的话题</li><li>推荐书籍：深入理解 Java 虚拟机</li></ul></li><li><strong>高并发/高可用</strong></li></ul><h2 id="技术学习方法">技术学习方法</h2><p>以学习 Spring Boot 技术为例</p><h4 id="认知、了解">认知、了解</h4><p>​这一阶段主要是掌握这个技术的相关概念和应用方向，并且由于人总有一种先入为主的观点，因此对某个技术点的第一印象非常重要，能够直接决定你能不能继续走下去。</p><ul><li>了解 Spring Boot 的百科定义</li><li>Spring Boot 解决了什么问题<ul><li>Spring Boot 就是一个典型的 Web后端框架，驱动一个网站的后端，相应前端发送过来的数据。</li></ul></li><li>知道同类技术具体有哪些<ul><li>Spring Boot(Java),beego(Go),flask(Python),diango(Python),thinkphp(PHP)</li></ul></li><li>了解技术的主要组成部分<ul><li>Spring 框架的 IOC容器、AOP切面</li></ul></li><li>思考该技术为什么会出现</li></ul><h4 id="学语法、学用法">学语法、学用法</h4><p>这个过程中要 多思考、多提炼、多总结、多写博客</p><ul><li>一般视频教程<ul><li>效率较低</li></ul></li><li>快速demo搭建视频 / 快速上手视频</li><li>阅读入门级的博客</li><li>阅读权威性的书籍</li><li>阅读官方文档</li></ul><h4 id="局部练习、小型实战、搭环境">局部练习、小型实战、搭环境</h4><p>踩坑及时记录、多思考、多提炼、多提炼、谢谢博客</p><ul><li>相关语法知识点的代码练习</li><li>实战小demo</li><li>搭建环境</li></ul><h4 id="上手实际项目、开源项目">上手实际项目、开源项目</h4><p>要求网络数据结构、网络、环境、语法等基础非常牢固</p><ul><li>了解项目内容</li><li>把项目在 IDE 里跑起来</li><li>调这个开源项目</li><li>结合一些脑图、流程图、UML 类图 阅读项目代码</li><li>自定义开源项目</li></ul><h4 id="造轮子、源码阅读、Github-开源项目">造轮子、源码阅读、Github 开源项目</h4><p>最高境界……</p><h2 id="理论课程选择">理论课程选择</h2><h4 id="计算机基础理论课">计算机基础理论课</h4><p>直接决定自身的一个计算机的素养，以及学习并理解新技术的深度。</p><ul><li>《计算机导论》</li><li>《计算机体系结构》</li><li>《计算机系统结构》</li><li>《计算机组成原理》</li><li>《微型计算机技术》</li></ul><h4 id="软件工程基础理论课">软件工程基础理论课</h4><ul><li>《软件工程》</li><li>《软件架构》</li></ul><h4 id="操作系统">操作系统</h4><ul><li>《操作系统》</li></ul><h4 id="数据结构">数据结构</h4><ul><li>《数据结构》</li></ul><h4 id="计算机网络">计算机网络</h4><ul><li>《计算机网络》</li></ul><h4 id="程序设计语言">程序设计语言</h4><ul><li>《Java 程序设计语言》</li><li>《C 程序语言设计》</li></ul><h4 id="数据库-v2">数据库</h4><ul><li>《数据库》</li></ul><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>编程的目的是产生实用的<strong>程序和软件</strong>，仅仅语言本身是很难实现这个目的的。<strong>语言</strong>之外，还要有<strong>编译器</strong>、<strong>集成开发环境（IDE）</strong>、 <strong>第三方功能模块</strong>、<strong>帮助文档</strong>等等，此外还要有<strong>技术社区</strong>供编程者交流和学习。这些东西合起来，就是一个==生态环境==。 <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p>即 用极少数的代码完成比较完整的功能，但不宜重构 <a href="#fnref2" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 入坑Java </tag>
             
         </tags>
       
