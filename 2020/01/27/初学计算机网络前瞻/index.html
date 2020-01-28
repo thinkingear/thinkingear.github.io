@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="摘要：主要给出了初学计算机网路时整体的框架以及学习要求">
+<meta name="description" content="摘要：主要给出了初学计算机网路时整体的知识框架以及学习要求">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初学计算机网络前瞻">
 <meta property="og:url" content="http://yoursite.com/2020/01/27/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/index.html">
 <meta property="og:site_name" content="Gear&#39;s blog">
-<meta property="og:description" content="摘要：主要给出了初学计算机网路时整体的框架以及学习要求">
-<meta property="og:image" content="http://yoursite.com/2020/01/27/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%A7%81%E8%A7%A3.PNG">
+<meta property="og:description" content="摘要：主要给出了初学计算机网路时整体的知识框架以及学习要求">
+<meta property="og:image" content="http://yoursite.com/2020/01/27/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%A7%81%E8%A7%A3.PNG">
 <meta property="article:published_time" content="2020-01-27T08:16:11.763Z">
-<meta property="article:modified_time" content="2020-01-27T13:18:31.906Z">
+<meta property="article:modified_time" content="2020-01-28T05:13:55.868Z">
 <meta property="article:author" content="齿维">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/01/27/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%A7%81%E8%A7%A3.PNG">
+<meta name="twitter:image" content="http://yoursite.com/2020/01/27/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%A7%81%E8%A7%A3.PNG">
 
 
 
@@ -409,16 +409,16 @@
       
 
       
-        <p><strong>摘要</strong>：主要给出了初学计算机网路时整体的框架以及学习要求</p>
+        <p><strong>摘要</strong>：主要给出了初学计算机网路时整体的知识框架以及学习要求</p>
 <a id="more"></a>
-<p>**读者定位：**对没有接触过计算机网络但希望了解并学习的人群，给出了一个大致的 学习框架以及一系列基本要求。</p>
-<p>**阅前须知：**本文的所有内容都由程序🐏提供，更多内容请移步至羊哥的公众号(CodeSheep)，<a href="https://space.bilibili.com/384068749" target="_blank" rel="noopener">B站空间</a> 或 <a href="https://www.codesheep.cn/" target="_blank" rel="noopener">个人博客</a>。</p>
+<p><strong>读者定位</strong>：对没有接触过计算机网络但希望了解并学习的人群，给出了一个大致的 学习框架以及一系列基本要求。</p>
+<p><strong>阅前须知</strong>：本文的所有内容都由程序🐏提供，更多内容请移步至羊哥的公众号(CodeSheep)，<a href="https://space.bilibili.com/384068749" target="_blank" rel="noopener">B站空间</a> 或 <a href="https://www.codesheep.cn/" target="_blank" rel="noopener">个人博客</a>。</p>
 <blockquote>
 <p>计算机网络主要指的就是 TCP/IP 协议栈，TCP/IP已然称为互联网的基石，甚至可以被称作是互联网时代最伟大的发明。但学习 TCP/IP 技术栈被人饱受诟病的一点是 TCP/IP 大部分内容都封装在操作系统内核态，总是藏着掖着，老是见不得人，因此容易遗忘，学起来就比较痛苦。</p>
 </blockquote>
 <h2 id="一、TCP-IP协议体系的认知">一、TCP/IP协议体系的认知</h2>
-<p>​	TCP/IP 协议栈是一种分层的协议，自下而上依次包括 <strong>数据链路层</strong>、<strong>网络层</strong>(IP)、<strong>传输层</strong>(TCP,UDP)以及<strong>应用层</strong>(DNS,FTP,HTTPS,HTTP)。除了应用层是封装在<strong>用户空间</strong>中的，其余三层都是封装在<strong>操作系统内核空间</strong>中的，例如 Windows，Linux 操作系统内部当中。<br>
-​		此外，用户最经常接触的就是应用层的协议，而被封装在操作系统内核空间的三层是不容易&quot;看&quot;到的。并且下一层对上一层是透明的，传输在每一层都是对等的。</p>
+<p>​    TCP/IP 协议栈是一种分层的协议，自下而上依次包括 <strong>数据链路层</strong>、<strong>网络层</strong>(IP)、<strong>传输层</strong>(TCP,UDP)以及<strong>应用层</strong>(DNS,FTP,HTTPS,HTTP)。除了应用层是封装在<strong>用户空间</strong>中的，其余三层都是封装在<strong>操作系统内核空间</strong>中的，例如 Windows，Linux 操作系统内部当中。<br>
+​       此外，用户最经常接触的就是应用层的协议，而被封装在操作系统内核空间的三层是不容易&quot;看&quot;到的。并且下一层对上一层是透明的，传输在每一层都是对等的。</p>
 <h2 id="二、数据链路层">二、数据链路层</h2>
 <p>需要掌握：</p>
 <ol>
@@ -517,7 +517,7 @@
 <p>DNS 指针查询中的 反向查找 或 逆向解析 的基本原理</p>
 </li>
 <li>
-<p>DNS 换粗</p>
+<p>DNS 缓存</p>
 </li>
 </ul>
 </li>
@@ -547,7 +547,8 @@
 </ul>
 </li>
 </ol>
-<p><img src="%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%A7%81%E8%A7%A3.PNG" alt="大佬的见解"></p>
+<p>大佬的见解：</p>
+<p><img src="/2020/01/27/%E5%88%9D%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%89%8D%E7%9E%BB/%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%A7%81%E8%A7%A3.PNG" alt="大佬的见解"></p>
 
       
     </div>
