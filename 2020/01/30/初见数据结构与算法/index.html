@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/01/30/%E5%88%9D%E8%A7%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%BD%91%E9%A1%B5%E4%BB%AC.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/01/30/%E5%88%9D%E8%A7%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%BD%91%E9%A1%B5%E6%95%A3%E5%88%97%E8%A1%A8.jpg">
 <meta property="article:published_time" content="2020-01-30T04:11:49.101Z">
-<meta property="article:modified_time" content="2020-02-07T07:28:58.512Z">
+<meta property="article:modified_time" content="2020-02-07T07:54:22.210Z">
 <meta property="article:author" content="齿维">
 <meta property="article:tag" content="数据结构与算法">
 <meta name="twitter:card" content="summary">
@@ -452,7 +452,7 @@
 <p>  分治，分而治之的简称，是将大问题分为子问题 <strong>以大化小</strong>的算法思路，也是使用频率非常高的算法。比如当我们翻阅字典时，除了依靠目录查询，人们更喜欢将字典从中间摊开放在桌面上，进行所谓的<strong>二分查找</strong>。这里的二分查找就用到了分治的思想。又比如之后要介绍的<strong>动态规划</strong>算法，即将问题拆分为子问题，在计算过程中利用之前计算过的结果，避免重复计算。<br>
   分治大家庭中，<strong>递归</strong>的地位也比较高。这是个非常有意思的算法思想。形式上就是一系列相似的问题，通过我调用我自己，像套娃一样层层拆分，直到达到基线条件。调用栈的层数越多，问题就越简单的，且最上层的问题是可以直接解出来的，但调用栈层数过多时，递归的效率就会非常低下。某种程度上，递归就是以大博小，动态规划则是以小博大。递归典型的例子就是汉诺塔问题，当然更具体的内容之后会安排上。</p>
 <h2 id="大-O-表示法">大 O 表示法</h2>
-<p>​		设待处理的数据规模为 n，我们<strong>不关心</strong>计算机每次处理一份数据时所花的时间到底有多长，<strong>只关心</strong>计算机处理这 n 个数据时所耗费的总操作数。一般用大写的 “O” 表示。</p>
+<p>  设待处理的数据规模为 n，我们<strong>不关心</strong>计算机每次处理一份数据时所花的时间到底有多长，<strong>只关心</strong>计算机处理这 n 个数据时所耗费的总操作数。一般用大写的 “O” 表示。</p>
 <p>下面是常见算法的时间复杂度，其中 O(log n) 中的 log n 习惯认为是以 2 为底的对数。</p>
 <p><img src="/2020/01/30/%E5%88%9D%E8%A7%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6.jpg" alt></p>
 <p>  可能一个算法的实际时间复杂度为 O( 3*n! + 0.5*n log n + 7 )。那么<strong>规定该算法的时间复杂度就是当 n 趋于无穷大时，在上面常见时间复杂度中与其同阶无穷大的时间复杂度</strong>。这样化简后的时间复杂度表示为 O(n!) 即可。值得一提的是，O(1) 表示<strong>常量时间</strong>，意为无论数据规模有多大，这个算法只需要一步就能搞定。</p>
@@ -557,7 +557,7 @@ sum arr = if  arr == []
 </ul>
 <h1 id="广度优先搜索">广度优先搜索</h1>
 <blockquote>
-<p>根据作者所知道的算法中，图算法应该是最有用的，而广度优先搜索就是图算法的一种，它能够找出两样东西之间的最短距离。</p>
+<p>根据《算法图解》的作者所知道的算法中，图算法应该是最有用的，而广度优先搜索就是图算法的一种，它能够找出两样东西之间的最短距离。</p>
 </blockquote>
 <h2 id="最短路径问题">最短路径问题</h2>
 <p>  像从旧金山双子峰到金门大桥的最少换成次数，或者去你朋友家的最短路径，再或者是国际象棋中把对方将杀死的最少步数。都被称为是最短路径问题。</p>
@@ -1439,7 +1439,7 @@ else:						# 两个字母不同
 <h3 id="分布式算法为何很有用">分布式算法为何很有用</h3>
 <p>  假设你有一个数据库表，包含数十亿乃至数万亿行，需要对其执行复杂的SQL查询。在这种情况下，你不能使用MySQL，因为数据表的行数超过数十亿后，它处理起来将很吃力。相反，你需要通过Hadoop来使用MapReduce！<br>
   又假设你需要处理一个很长的清单，其中包含 100万个职位，而每个职位处理起来需要 10秒。如果使用一台计算机来处理，将耗时数月！如果使用 100台计算机来处理，可能几天就能完工。<br>
-  分布式算法非常适合用于在短时间内完成海量工作，其中的MapReduce基于两个简单的理念：**映射（map）<strong>函数和</strong>归并（reduce）**函数。MapReduce使用这两个简单概念在多台计算机上执行数据查询。数据集很大，包含数十亿行时，使用 MapReduce 只需几分钟就可获得查询结果，而传统数据库可能要耗费数小时。</p>
+  分布式算法非常适合用于在短时间内完成海量工作，其中的MapReduce基于两个简单的理念：**映射(map)<strong>函数和</strong>归并(reduce)**函数。MapReduce使用这两个简单概念在多台计算机上执行数据查询。数据集很大，包含数十亿行时，使用 MapReduce 只需几分钟就可获得查询结果，而传统数据库可能要耗费数小时。</p>
 <h2 id="布隆过滤器和HyperLogLog">布隆过滤器和HyperLogLog</h2>
 <p>  在假设你管理着 Google，要<strong>避免</strong>将用户重定向到恶意网站。你有一个清单，其中记录了恶意网站的 URL。你需要确定要将用户重定向到的 URL <strong>是否在这个清单</strong>中。这些一类型的问题，通常都要涉及庞大的集合。给定一个元素，你需要判断它是否包含在这个集合中。为快速做出这种判断，可使用<strong>散列表</strong>。例如，Google可能有一个庞大的散列表，其中的<strong>键是已搜集的网页</strong>。<br>
   初始状态时，所有键所对应的值都是“False”。第一次判断 A 网页是否在该集合时，只需或许 A 网页所对应的值即可。随后发现不在这个集合，同时 A 的确是个恶意网页时，就将 “False” 改为 “True”，之后系统再次判断 A 网页是否是恶意网页时，可以先获取其对应的的值即可。散列表的平均查找时间为 O(1)，即查找时间是固定的，这应该是个非常乐观的时间复杂度了。不过 Google 需要建立数万亿个网页的索引，因此这个散列表非常大，需要<strong>占用大量的存储空间</strong>。面临海量数据，我们可以选择非常有创造性的方案——<strong>布隆过滤器</strong>，来解决这种问题。</p>
@@ -1454,16 +1454,16 @@ else:						# 两个字母不同
 <p>  HyperLogLog是一种类似于布隆过滤器的算法。HyperLogLog近似地计算集合中不同的元素数，与布隆过滤器一样，它不能给出准确的答案，但也八九不离十，而占用的内存空间却少得多。<strong>面临海量数据且只要求答案八九不离十时，完全可以考虑使用概率型算法</strong>。</p>
 <p><strong>接下来的两个话题都与加密算法有关</strong>。</p>
 <h2 id="SHA算法">SHA算法</h2>
-<p>  之前介绍的散列函数都是将<strong>键</strong>直接映射到内存地址上。而另一种散列函数，安全散列算法（secure hash algorithm，SHA）函数，则是将<strong>字符串类型</strong>的<strong>键</strong>直接映射到一个较短字符串上。比如 “hello” 这个字符串同过SHA256 加密后的结果为<code>2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824</code></p>
+<p>  之前介绍的散列函数都是将<strong>键</strong>直接映射到内存地址上。而另一种散列函数，安全散列算法（secure hash algorithm，SHA）函数，则是将<strong>字符串类型</strong>的<strong>键</strong>直接映射到一个较短字符串上。比如 “hello” 这个字符串通过 <code>SHA256</code> 加密后的结果为<code>2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824</code></p>
 <p>下面简述安全散列算法的<strong>安全</strong>体现在哪里。</p>
 <ol>
 <li>这个散列函数不会产生冲突，因此不会出现因为明明输错密码还能够成功登录的情况。</li>
 <li>这个散列函数没有反函数，意味着不能直接反破译出密码，因此密码校验都是用 SHA 加密结果进行比对。</li>
 <li>就算原字符串只改变了一个字符，最终的 SHA 结果也会截然不同。因此攻击者无法通过比较散列值是否类似来破解密码。这时就称这种散列函数对<strong>全部敏感</strong>。
 <ol>
-<li>“hellow” SHA256 加密结果为<code>d0bc381952d0827f36467818a9560eb5eb6fda8a64a422aa21fcda3f2263e8b4</code></li>
-<li>“hella” SHA256 加密结果为<code>70de66401b1399d79b843521ee726dcec1e9a8cb5708ec1520f1f3bb4b1dd984</code></li>
-<li>“hell” SHA256 加密结果为 <code>0ebdc3317b75839f643387d783535adc360ca01f33c75f7c1e7373adcd675c0b</code></li>
+<li>“hellow” <code>SHA256</code> 加密结果为<code>d0bc381952d0827f36467818a9560eb5eb6fda8a64a422aa21fcda3f2263e8b4</code></li>
+<li>“hella” <code>SHA256</code> 加密结果为<code>70de66401b1399d79b843521ee726dcec1e9a8cb5708ec1520f1f3bb4b1dd984</code></li>
+<li>“hell” <code>SHA256</code> 加密结果为 <code>0ebdc3317b75839f643387d783535adc360ca01f33c75f7c1e7373adcd675c0b</code></li>
 </ol>
 </li>
 </ol>
@@ -1662,6 +1662,20 @@ else:						# 两个字母不同
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://thinkingear.github.io/2020/01/30/%E5%88%9D%E8%A7%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/#more" title="初见算法" target="_blank">初见算法</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
         </div>
