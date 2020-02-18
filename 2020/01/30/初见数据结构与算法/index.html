@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://thinkingear.github.io/2020/01/30/%E5%88%9D%E8%A7%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%BD%91%E9%A1%B5%E4%BB%AC.jpg">
 <meta property="og:image" content="http://thinkingear.github.io/2020/01/30/%E5%88%9D%E8%A7%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%BD%91%E9%A1%B5%E6%95%A3%E5%88%97%E8%A1%A8.jpg">
 <meta property="article:published_time" content="2020-01-30T04:11:49.101Z">
-<meta property="article:modified_time" content="2020-02-08T07:53:31.086Z">
+<meta property="article:modified_time" content="2020-02-09T04:21:22.032Z">
 <meta property="article:author" content="齿维">
 <meta property="article:tag" content="数据结构与算法">
 <meta name="twitter:card" content="summary">
@@ -442,7 +442,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  55 分钟
+                  54 分钟
                 </span>
               
             </div>
@@ -465,7 +465,7 @@
       
         <p><strong>初学者快速上手数据结构与算法</strong></p>
 <a id="more"></a>
-<p><strong>阅前须知</strong>：本文仅提供学习数据结构与算法的一个初步的知识框架，仅供参考，实际效果因人而异。该文章所参考的书籍绝大部分来自《算法图解》，少部分来自《算法导论》。本文所有的代码示例均用 Python 语言编写，全文也只有五处很短的代码块，代码落地程度不高，代码量不够的读者也可以阅读。</p>
+<p><strong>阅前须知</strong>：本文仅提供学习数据结构与算法的一个初步的知识框架，仅供参考，实际效果因人而异。该文章所参考的书籍绝大部分来自《算法图解》，少部分来自《算法导论》。本文所有的代码示例均用 Python 语言编写，全文也只有四处很短的代码块，代码落地程度不高，代码量不够的读者也可以阅读。</p>
 <blockquote>
 <p>  我承认，精准且严谨的定义固然是重要的，因为所有与之相关的理解都要建立在这个定义的基础上。但有时有些晦涩的定义直接上手可能会非常地棘手，因此可以先从定义的相关的应用或实例入手，通过<strong>合理恰当的打比方</strong>的方式，先对定义产生初步的了解，再通过练习不断地修正，力图接近真实的定义，最终可以达到所谓事半功倍的效果。<br>
   因此，我想表达的是，文章可能会出现几处严谨性欠佳的描述，我会在那后面力争把它“圆”回来，并附上一个或者多个认可度较高的定义及出处。</p>
@@ -510,15 +510,7 @@
 <p>  编写涉及数组的递归函数时，基线条件通常是数组为空或只包含一个元素。陷入困境时，有必要检查一下基线条件是不是这样的。</p>
 <h2 id="函数式编程">函数式编程</h2>
 <p>  诸如 <strong>Haskell</strong> 等函数式编程语言没有循环，因此你只能使用递归来编写类循环。例如，函数 sum 可以这样编写。</p>
-<pre><code>sum[] = 0
-sum(x:xs) = x + (sum xs)
-# 用函数式程序设计语言 Haskell 所编写的 sum 函数。
-
-sum arr = if  arr == []
-            then 0
-            else (head arr) + (sum (tail arr))
-# 用循环编写 sum 函数。
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum[] = <span class="number">0</span></span><br><span class="line">sum(x:xs) = x + (sum xs)</span><br><span class="line"><span class="comment"># 用函数式程序设计语言 Haskell 所编写的 sum 函数。</span></span><br><span class="line"></span><br><span class="line">sum arr = <span class="keyword">if</span>  arr == []</span><br><span class="line">            then <span class="number">0</span></span><br><span class="line">            <span class="keyword">else</span> (head arr) + (sum (tail arr))</span><br><span class="line"><span class="comment"># 用循环编写 sum 函数。</span></span><br></pre></td></tr></table></figure>
 <p>  <strong>归纳证明</strong>是一种证明算法行之有效的证明方式。它分为基线条件和归纳条件，在数学领域中被称为第一类数学归纳法。归纳证明常常与 D&amp;C 协同发挥作用。</p>
 <h2 id="快速排序">快速排序</h2>
 <p>  C语言标准库中的 <strong>qsort</strong> 函数实现的就是快速排序，是一种比选择排序快得多的排序算法，快排的平均大 O 运行时间为 O(n*log n )。其基本步骤为：</p>
@@ -740,30 +732,7 @@ sum arr = if  arr == []
 <li>重复第一步，直到覆盖了所有的州。</li>
 </ol>
 <p>具体的 Python 代码实现如下。</p>
-<pre><code>states_needed = set([&quot;mt&quot;, &quot;wa&quot;, &quot;or&quot;, &quot;id&quot;, &quot;nv&quot;, &quot;ut&quot;, &quot;ca&quot;,&quot;az&quot;])  # 传入一个数组，并转换为集合。
-arr = set([1, 2, 2, 3, 3, 3])
-
-stations = {}  # 需要有可供选择的广播台清单，使用散列表来表示它。
-stations[&quot;kone&quot;] = set([&quot;id&quot;, &quot;nv&quot;, &quot;ut&quot;])
-stations[&quot;ktwo&quot;] = set([&quot;wa&quot;, &quot;id&quot;, &quot;mt&quot;])
-stations[&quot;kthree&quot;] = set([&quot;or&quot;, &quot;nv&quot;, &quot;ca&quot;])
-stations[&quot;kfour&quot;] = set([&quot;nv&quot;, &quot;ut&quot;])
-stations[&quot;kfive&quot;] = set([&quot;ca&quot;, &quot;az&quot;])
-final_stations = set()  # 需要一个集合来储存最终选择的广播台。
-
-while states_needed:  # 不断地循环，直到states_needed为空。
-    best_station = None     # 准备遍历所有的广播台，从中选择覆盖了最多的未覆盖州的广播台存储在 best_station 中。
-    states_covered = set()
-    for station, states in stations.items():  # for循环迭代每个广播台，并确定它是否是最佳的广播台。
-        covered = states_needed &amp; states  # covered 包含当前广播台覆盖的一系列还未覆盖的州
-        if len(covered) &gt; len(states_covered):  # 检查该广播台覆盖的州是否比 best_station 多。
-            best_station = station
-            states_covered = covered  # states_covered 包含该广播台覆盖的所有未覆盖的州。
-            states_needed -= states_covered  # 更新 states_needed。
-            final_stations.add(best_station)
-
-print(final_stations)  # 输出结果为 set(['ktwo', 'kthree', 'kone', 'kfive'])
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">states_needed = set([<span class="string">"mt"</span>, <span class="string">"wa"</span>, <span class="string">"or"</span>, <span class="string">"id"</span>, <span class="string">"nv"</span>, <span class="string">"ut"</span>, <span class="string">"ca"</span>,<span class="string">"az"</span>])  <span class="comment"># 传入一个数组，并转换为集合。</span></span><br><span class="line">arr = set([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">stations = &#123;&#125;  <span class="comment"># 需要有可供选择的广播台清单，使用散列表来表示它。</span></span><br><span class="line">stations[<span class="string">"kone"</span>] = set([<span class="string">"id"</span>, <span class="string">"nv"</span>, <span class="string">"ut"</span>])</span><br><span class="line">stations[<span class="string">"ktwo"</span>] = set([<span class="string">"wa"</span>, <span class="string">"id"</span>, <span class="string">"mt"</span>])</span><br><span class="line">stations[<span class="string">"kthree"</span>] = set([<span class="string">"or"</span>, <span class="string">"nv"</span>, <span class="string">"ca"</span>])</span><br><span class="line">stations[<span class="string">"kfour"</span>] = set([<span class="string">"nv"</span>, <span class="string">"ut"</span>])</span><br><span class="line">stations[<span class="string">"kfive"</span>] = set([<span class="string">"ca"</span>, <span class="string">"az"</span>])</span><br><span class="line">final_stations = set()  <span class="comment"># 需要一个集合来储存最终选择的广播台。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> states_needed:  <span class="comment"># 不断地循环，直到states_needed为空。</span></span><br><span class="line">    best_station = <span class="literal">None</span>     <span class="comment"># 准备遍历所有的广播台，从中选择覆盖了最多的未覆盖州的广播台存储在 best_station 中。</span></span><br><span class="line">    states_covered = set()</span><br><span class="line">    <span class="keyword">for</span> station, states <span class="keyword">in</span> stations.items():  <span class="comment"># for循环迭代每个广播台，并确定它是否是最佳的广播台。</span></span><br><span class="line">        covered = states_needed &amp; states  <span class="comment"># covered 包含当前广播台覆盖的一系列还未覆盖的州</span></span><br><span class="line">        <span class="keyword">if</span> len(covered) &gt; len(states_covered):  <span class="comment"># 检查该广播台覆盖的州是否比 best_station 多。</span></span><br><span class="line">            best_station = station</span><br><span class="line">            states_covered = covered  <span class="comment"># states_covered 包含该广播台覆盖的所有未覆盖的州。</span></span><br><span class="line">            states_needed -= states_covered  <span class="comment"># 更新 states_needed。</span></span><br><span class="line">            final_stations.add(best_station)</span><br><span class="line"></span><br><span class="line">print(final_stations)  <span class="comment"># 输出结果为 set(['ktwo', 'kthree', 'kone', 'kfive'])</span></span><br></pre></td></tr></table></figure>
 <h2 id="NP完全问题模型—旅行商问题">NP完全问题模型—旅行商问题</h2>
 <p>  有一位旅行商，他需要前往 n个城市，同时保证旅程最短。因此他需要考虑各种各样可能的顺序情况，而对于每种顺序，他都要计算总旅程，再挑选出旅程最短的路线，那么很明显，他需要考虑 n! 个顺序情况。<br>
   针对这种问题，当 n 比较大时，可以采取贪婪算法，具体步骤为。</p>
@@ -1073,11 +1042,7 @@ print(final_stations)  # 输出结果为 set(['ktwo', 'kthree', 'kone', 'kfive']
 <li>如果两个字母相同时，值 = 左上角单元格的值 + 1。</li>
 </ol>
 <p>实现这个公式的伪代码类似于下面这样。</p>
-<pre><code>if word_a[j] == word_b[j]:	# 两个字母相同
-    cell[i][j] = cell[i-1][j-1] + 1
-else:
-    cell[i][j] = 0			# 两个字母不同
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> word_a[j] == word_b[j]:	<span class="comment"># 两个字母相同</span></span><br><span class="line">    cell[i][j] = cell[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    cell[i][j] = <span class="number">0</span>			<span class="comment"># 两个字母不同</span></span><br></pre></td></tr></table></figure>
 <p>根据公式不难填满得到如下表格。</p>
 <table>
 <thead>
@@ -1175,11 +1140,7 @@ else:
 <li>如果两个字母相同，就将当前单元格的值设置为左上方的单元格的值加 1。</li>
 </ol>
 <p>公式伪代码如下。</p>
-<pre><code>if word_a[i] == word_b[j]:	# 两个字母相同
-    cell[i][j] = cell[i-1][j-1] + 1
-else:						# 两个字母不同
-    cell[i][j] = max(cell[i-1][j],cell[i][j-1])
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> word_a[i] == word_b[j]:	<span class="comment"># 两个字母相同</span></span><br><span class="line">    cell[i][j] = cell[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:						<span class="comment"># 两个字母不同</span></span><br><span class="line">    cell[i][j] = max(cell[i<span class="number">-1</span>][j],cell[i][j<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
 <p>求 FOSH 和 FORT 的最长公共子序列的长度的网格如下。</p>
 <table>
 <thead>
@@ -1574,7 +1535,7 @@ else:						# 两个字母不同
 <!-- 修改时间 -->
 <li>
   <strong>更新于： </strong>
-  2020年02月08日 - 15时02分
+  2020年02月09日 - 12时02分
 </li>
 
 <!-- 引用链接 -->
@@ -1638,8 +1599,8 @@ clipboard.on("success", function(target) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/30/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%20Java%20%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/" rel="next" title="从零开始的 Java 语法学习">
-                <i class="fa fa-chevron-left"></i> 从零开始的 Java 语法学习
+              <a href="/2020/01/30/%E4%BB%8E%E4%B8%80%E5%BC%80%E5%A7%8B%E7%9A%84%20Java%20%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E2%91%A0/" rel="next" title="从一开始的 Java 语法学习①">
+                <i class="fa fa-chevron-left"></i> 从一开始的 Java 语法学习①
               </a>
             
           </div>
@@ -1647,6 +1608,10 @@ clipboard.on("success", function(target) {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%9C%AF%E8%AF%AD/" rel="prev" title="计算机科学中的概念与术语">
+                计算机科学中的概念与术语 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1732,7 +1697,7 @@ clipboard.on("success", function(target) {
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1754,7 +1719,7 @@ clipboard.on("success", function(target) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2120,7 +2085,7 @@ if(canvas.getContext){
             <h3 class="widget-title">Tag Cloud</h3>
             <div id="myCanvasContainer" class="widget tagcloud">
                 <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A5%E5%9D%91Java/" rel="tag">入坑Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li></ul>
+                    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A5%E5%9D%91Java/" rel="tag">入坑Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5%E5%8F%8A%E6%9C%AF%E8%AF%AD/" rel="tag">概念及术语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li></ul>
                 </canvas>
             </div>
         </div>
