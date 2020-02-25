@@ -86,14 +86,14 @@
 
 
 
-<meta name="description" content="研究了 Java 中的一些基本特性及语法，诸如 Java 中对象的初始化、等等 v1.0.20200222">
+<meta name="description" content="研究了 Java 中的一些基本特性及语法，诸如 Java 中对象的初始化、等等 v1.0.20200225">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从一开始的 Java 语法学习②">
 <meta property="og:url" content="https://thinkingear.cn/2020/02/18/%E4%BB%8E%E4%B8%80%E5%BC%80%E5%A7%8B%E7%9A%84%20Java%20%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E2%91%A1/index.html">
 <meta property="og:site_name" content="Gear&#39;s blog">
-<meta property="og:description" content="研究了 Java 中的一些基本特性及语法，诸如 Java 中对象的初始化、等等 v1.0.20200222">
+<meta property="og:description" content="研究了 Java 中的一些基本特性及语法，诸如 Java 中对象的初始化、等等 v1.0.20200225">
 <meta property="article:published_time" content="2020-02-18T05:16:57.336Z">
-<meta property="article:modified_time" content="2020-02-25T03:09:58.718Z">
+<meta property="article:modified_time" content="2020-02-25T14:25:57.565Z">
 <meta property="article:author" content="齿维">
 <meta property="article:tag" content="入坑Java">
 <meta name="twitter:card" content="summary">
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7.5k 字
+                  9.2k 字
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  26 分钟
+                  33 分钟
                 </span>
               
             </div>
@@ -446,7 +446,7 @@
 
       
         <p><strong>研究了 Java 中的一些基本特性及语法，诸如 Java 中对象的初始化、等等</strong><br>
-v1.0.20200222</p>
+v1.0.20200225</p>
 <a id="more"></a>
 <h1 id="阅前须知">阅前须知</h1>
 <p>  这是一个从一开始学习 Java 的文章，没有过多的关于语法方面的内容，非快餐向（欲速则不达），仅供参考。本篇文章需要读者对面向对象有个基本的概念的认知。本篇文章所参考的书籍为&quot;OnJava8&quot;，这是《Java 编程思想(第四版)》的作者在 2016年基于 <strong>JDK 1.8</strong> 所新编的 Java 学习教材，因此又被称为《Java 编程思想(第五版)》。我猜测点开这篇文章的读者一般是，抱着入门 Java 的心态学习 OnJava8 这本书，但同时希望有人已经写过类似于学习笔记一样的博文来加深理解，或者是书中的哪一块有点弄不太懂，希望有个更清楚的解释。这样的人我相信这个&quot;读书笔记&quot;应该是非常适合你的。不过还是要提一点的是，除非是老手(不过老手也不会看这篇博文就是了)，一定要在书中至少阅读一遍你想要学的章节，然后再来考虑看不看这篇文章，这个博文只能是起到辅助作用，多读几遍书远比看几百通博文的效率来的高多了，免得浪费更多的时间。<br>
@@ -574,6 +574,67 @@ v1.0.20200222</p>
   包其实代表的是一个路径，这个路径的下面有相关类的集合。你也可以把包理解为对命名空间的一种<strong>建模</strong>。类库开发者需要将类库各个组件捆绑内聚到一个类库单元中。而 Java 中可以通过在组件中添加 <code>package</code> 关键字使得各个类置于同一包下，使我们更好地访问并管理类库。<br>
   关于解释器就在目录中查找与你所创建的类名称相关的 <code>.class</code> 文件的过程原书已经说地非常清楚了，简言之就是将环境变量 CLASSPATH 和通过 package 获取的相对路径合成一个绝对路径用来查找 <code>.class</code> 文件。不得不承认，有些繁杂的过程都在 IDE 的加持下变得极其方便，这也是一部分人不推荐新手刚开始就用 IDE 学习的原因，因为它会掩盖一部分操作，使得初学者不会去注意那部分的内容，所以还是有必要去特意去学一下的。<strong>现在具备了以上知识，终于可以创建属于自己的工具库来减少重复的程序代码了</strong>。</p>
 <h2 id="访问权限修饰符">访问权限修饰符</h2>
+<p>​		<code>public</code> , <code>private</code> , <code>protected</code> , <code>friendly</code> 中每个访问权限所设置的&quot;层面&quot;都不一样。public 是全局的，private 只能是自己访问自己，friendly 则是严格意义上不允许包外类访问，protected 则是在 friendly 的基础上多了一点东西，下面有讲到。值得一提的是，一个编译单元的内的<strong>所有类</strong>均可视为包内类。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">访问权限修饰符/访问者</th>
+<th style="text-align:center">本类</th>
+<th style="text-align:center">包内类</th>
+<th style="text-align:center">包外类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center">friendly/默认/无</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">×</td>
+</tr>
+<tr>
+<td style="text-align:center">private</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">×</td>
+</tr>
+</tbody>
+</table>
+<p>​		之所以没有把 <code>protected</code> 放到这上面是因为它比较特殊。不考虑继承时 protect 和 friendly 是没有区别的。考虑倒了继承，设计师才会在 friendly 的基础上做了增量变化。子类可以<strong>间接地</strong>访问父类被 protected 的方法，这是由于继承时，子类可以获得符类方法的地址并将其存储在自己的方法区中，当然重写父类 protected 方法时就直接访问重写后的方法。如果学有余力，你可试着看看<a href="https://blog.csdn.net/dawn_after_dark/article/details/74453915" target="_blank" rel="noopener">这篇博客</a>中内部实现的部分。<br>
+​		在实际应用时，注意不要犯一些不该犯的错误，就比如在包外访问包访问权限的 public 构造器，这也是书中给的示例。也就是说访问一个字段或者方法之前，要先看看这个类是不是你能访问的。</p>
+<h3 id="默认包访问权限">默认包访问权限</h3>
+<p>​		有时我们会想如果没有把一些类放在一个包，而是一起放在了一个普普通通的目录下，Java 还允许这写文件相互进行访问吗？答案是可以的。 这是因为 Java 把这样无家可归的文件看作是隶属于该目录的<strong>默认包</strong>中，并为它们提供了包访问权限。</p>
+<h3 id="有没有必要-private">有没有必要 private</h3>
+<p>​		之所以这么说是因为默认的包访问权限已经提供了足够的隐藏措施。光是默认权限就足矣让客户端程序员不去乱碰他们不该碰的东西，并且让库程序员随意更改代码逻辑。那既然我们的目的已经都达成了，干嘛还需要 private 修饰符呢？<br>
+​		确实，也因此，最初的程序员都不怎么用关键字 private，因为程序没有它也可以照常工作。然而，使用 private 依然是非常重要的，尤其是在多线程环境中，这部分内容将在&quot;并发编程&quot;那一章中看到。<br>
+​		那你的意思就是说在学多线程之前，private 还是没什么用喽。其实还不是的，因为我们还可以利用 private 控制对象的创建，防止别人直接访问某个构造器。Just like this.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sundae</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Sundae</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">static</span> Sundae <span class="title">makeASundae</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Sundae();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IceCream</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//- Sundae x = new Sundae();</span></span><br><span class="line">    Sundae x = Sundae.makeASundae();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​		除此之外，任何非主方法(意指主要方法，并不一定是 main 方法)，也就是辅助主方法的其它方法，都应声明为 private，这样就避免了其它类误用这个方法，也防止你去改变或删除它。并且最好把类中的属性也声明为 private。这都是一种规范也是一种习惯。</p>
+<h2 id="接口和实现">接口和实现</h2>
+<p>​		一般来说程序具体的源代码就称作是<strong>实现</strong>，<strong>访问控制</strong>被称为<strong>实现隐藏</strong>，此外<strong>数据和方法包装到类</strong>后把<strong>具体实现隐藏</strong>称为是<strong>封装</strong>，最后你会得到一个同时带有特征和行为的数据类型。<br>
+​		一个编译单元只能有一个接口，而这个接口就有文件内的 public 类提供。当然文件中如果一个 public 类也没有也是完全没有问题的，这时文件名不受类名限制，但最好不要取一些令代码阅读者和维护者感到困惑的代码。<br>
+​		那我们还想禁止让外界访问那些不是 public 的类该怎么办。对于类的访问权限只有两种：包访问权限和 public。因此你不能从类的的修饰符下手，但可以将类的构造器声明为 private，这样只能通过类内部的 static 成员来创建对象了，因为 private 只允许自己访问自己。就像下面这样。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Soup1</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Soup1</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Soup1 <span class="title">makeSoup</span><span class="params">()</span> </span>&#123; <span class="comment">// [1]</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Soup1();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Soup2</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Soup2</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> Soup2 ps1 = <span class="keyword">new</span> Soup2(); <span class="comment">// [2]</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Soup2 <span class="title">access</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ps1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Only one public class allowed per file:</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Lunch</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">testPrivate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Can't do this! Private constructor:</span></span><br><span class="line">    <span class="comment">//- Soup1 soup = new Soup1();</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">testStatic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Soup1 soup = Soup1.makeSoup();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">testSingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Soup2.access().f();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>​		上述例子给出了两个选择：在 Soup1 中，有一个 static 方法，它的作用是创建一个新的Soup1 对象并返回对象的引用。如果想要在返回引用之前在Soup1 上做一些额外操作，或是记录创建了多少个Soup1 对象（可以用来限制数量），这种做法是有用的。<br>
+​		Soup2 用到了所谓的设计模式。这种模式叫做单例模式，因为它只允许创建类的一个对象。Soup2 类的对象是作为Soup2 的static private 成员而创建的，所以有且只有一个，你只能通过public 修饰的access() 方法访问到这个对象。</p>
+</blockquote>
+<p>下面是书中在接口和实现部分对提升代码可读性的建议。</p>
+<blockquote>
+<p>为了清晰起见，你可以采用一种创建类的风格：<br>
+public 成员放在类的开头，接着是 protected 成员，包访问权限成员，最后是 private 成员。这么做的好处是类的使用者可以从头读起，首先会看到对他们而言最重要的部分（public 成员，因为可以从文件外访问它们），直到遇到非 public 成员时停止阅读，下面就是内部实现了。</p>
+</blockquote>
+<h2 id="小结">小结</h2>
+<blockquote>
+<p>当了解到犯错是相对安全的时候，你可以更加放心地实验，更快地学会，更快地完成项目。</p>
+</blockquote>
+<p>​		<strong>类的 public 接口是用户真正看到的，所以一定要认真设计和分析这个接口</strong>。访问权限控制关注的是类库创建者和外部使用者之间的关系，是一种交流方式。但你若自己一个人编写了所有的代码，或是在一个小组中工作，所有的东西都放在同一个包下。在这种独特的交流方式下，使用默认包访问权限或许就足够了，一味地严格地遵循访问权限规则不是明智的选择。</p>
+<h1 id="复用">复用</h1>
 <!--预习，复习，作业，数学，英语-->
       
     </div>
@@ -631,7 +692,7 @@ v1.0.20200222</p>
 <!-- 修改时间 -->
 <li>
   <strong>更新于： </strong>
-  2020年02月25日 - 11时02分
+  2020年02月25日 - 22时02分
 </li>
 
 <!-- 引用链接 -->
@@ -1153,7 +1214,7 @@ if(canvas.getContext){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#阅前须知"><span class="nav-text">阅前须知</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化和清理"><span class="nav-text">初始化和清理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法重载"><span class="nav-text">方法重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器"><span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-关键字"><span class="nav-text">this 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-与-this"><span class="nav-text">static 与 this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收器"><span class="nav-text">垃圾回收器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态段与非静态段"><span class="nav-text">静态段与非静态段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化数组"><span class="nav-text">初始化数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态初始"><span class="nav-text">静态初始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态初始"><span class="nav-text">动态初始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按值传递-or-按引用传递"><span class="nav-text">按值传递 or 按引用传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可变参数列表"><span class="nav-text">可变参数列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举类型"><span class="nav-text">枚举类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封装"><span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#包"><span class="nav-text">包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问权限修饰符"><span class="nav-text">访问权限修饰符</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#阅前须知"><span class="nav-text">阅前须知</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化和清理"><span class="nav-text">初始化和清理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法重载"><span class="nav-text">方法重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器"><span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-关键字"><span class="nav-text">this 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-与-this"><span class="nav-text">static 与 this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收器"><span class="nav-text">垃圾回收器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态段与非静态段"><span class="nav-text">静态段与非静态段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化数组"><span class="nav-text">初始化数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态初始"><span class="nav-text">静态初始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态初始"><span class="nav-text">动态初始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按值传递-or-按引用传递"><span class="nav-text">按值传递 or 按引用传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可变参数列表"><span class="nav-text">可变参数列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举类型"><span class="nav-text">枚举类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封装"><span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#包"><span class="nav-text">包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问权限修饰符"><span class="nav-text">访问权限修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认包访问权限"><span class="nav-text">默认包访问权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有没有必要-private"><span class="nav-text">有没有必要 private</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口和实现"><span class="nav-text">接口和实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复用"><span class="nav-text">复用</span></a></li></ol></div>
             
 
           </div>
